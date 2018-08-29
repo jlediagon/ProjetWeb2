@@ -1,0 +1,26 @@
+{# src/GSEB/PlatformBundle/Resources/views/Action/add.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Ajouter un equipement 
+{% endblock %}
+
+{% block sebplatform_body %}
+
+  <h2>Ajouter un nouvel équipement</h2>
+  <hr>
+  <p class="lead">
+    Vous êtes présent sur la page afin d'ajouter un nouvel équipement dans la base de données RackTables. 
+    <br>
+    Pour cela, veuillez avoir les informations suivantes à disposition :
+    <ul>
+      <li class="list-group-item">Son emplacement dans la baie (U)</li>
+      <li class="list-group-item">Sa disposition (Front, Interior, Back) et son occupation (en U)</li>
+      <li class="list-group-item">La documentation technique de l'outil</li>
+    </ul>
+    Veuillez cliquez sur le bouton suivant pour poursuivre l'enregistrement :
+  </p>
+  <a href="{{ path('gseb_demande_salle') }}" class="btn btn-primary " role="button" >Poursuivre</a>
+
+{% endblock %}

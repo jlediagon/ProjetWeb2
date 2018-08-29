@@ -1,0 +1,3 @@
+gseb_core_homepage:
+    path:     /
+    defaults: { _controller: GSEBCoreBundle:Core:index }

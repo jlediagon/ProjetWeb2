@@ -1,0 +1,27 @@
+{# src/GSEB/PlatformBundle/Resources/views/Action/modif.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Selection du type d'objet 
+{% endblock %}
+
+{% block sebplatform_body %}
+
+  <h2>Choississez le type d'objet installé </h2>
+   <p>
+    Affichage des objets :
+  </p>
+  <ul>
+  {% for objet in resultat %}
+    <li class="list-group" >
+        <a href="{{ path('gseb_demande_properties',{'id_objtype':   objet.dict_key  })  }}" class="btn btn-primary " role="button" >
+
+        {{ objet.dict_value }}              
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+ 
+
+{% endblock %}

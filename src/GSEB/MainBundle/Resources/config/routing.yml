@@ -1,0 +1,10 @@
+gseb_main_homepage:
+    path:     /
+    defaults: { _controller: GSEBMainBundle:Main:accueil }
+
+gseb_main_homeaction:
+    path:     /{action}
+    defaults: 
+        _controller: GSEBMainBundle:Main:index 
+    requirements:
+        action: add|edit|delete

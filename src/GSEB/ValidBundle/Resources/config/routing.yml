@@ -1,0 +1,3 @@
+gseb_valid_homepage:
+    path:     /
+    defaults: { _controller: GSEBValidBundle:Default:index }

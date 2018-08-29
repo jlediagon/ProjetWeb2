@@ -1,0 +1,30 @@
+gseb_user:
+    resource: "@GSEBUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gseb_user_history:
+    resource: "@GSEBUserHistoryBundle/Resources/config/routing.yml"
+    prefix:   /UserHistory
+
+gseb_admin_history:
+    resource: "@GSEBAdminHistoryBundle/Resources/config/routing.yml"
+    prefix:   /AdminHistory
+
+gseb_core:
+    resource: "@GSEBCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+gseb_valid:
+    resource: "@GSEBValidBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+gseb_demande:
+    resource: "@GSEBDemandeBundle/Resources/config/routing.yml"
+    prefix:   /demande
+
+gseb_main:
+    resource: "@GSEBMainBundle/Resources/config/routing.yml"
+    prefix:   /main
+
+
+

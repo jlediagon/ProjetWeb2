@@ -1,0 +1,19 @@
+{# src/GSEB/MainBundle/Resources/views/Action/accueil.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+    {% block body %}
+    <h2>Selectionner la salle correspondante</h2>
+    <p>
+        Affichage des salles disponibles :
+    </p>
+    <ul>
+        {% for salle in resultat %}
+        <li class="list-group" >
+            <a href="{{ path('gseb_demande_baie', {'id_salle': salle.id }) }}" class="btn btn-primary " role="button" >
+            {{ salle.name }}, {{ salle.id }}, {{ salle.location_name }}
+            </a>       
+        </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}

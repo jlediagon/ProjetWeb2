@@ -1,0 +1,19 @@
+{# src/GSEB/PlatformBundle/Resources/views/Action/modif.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Supprimer une annonce - {{ parent() }}
+{% endblock %}
+
+{% block sebplatform_body %}
+
+   <h2>Modifier une demande</h2>
+  <hr>
+  <p class="lead">
+    Veuillez cliquez sur le bouton suivant afin d'afficher vos demandes :
+  </p>
+  <a href="{{ path('gseb_demande_editdellist') }}" class="btn btn-primary " role="button" >Poursuivre</a>
+
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{# src/GSEB/PlatformBundle/Resources/views/Action/modif.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Selection du type d'objet 
+{% endblock %}
+
+{% block sebplatform_body %}
+Votre demande de création a bien été prise en compte voici un récapitulatif :<br>
+<h3>Sujet de la demande :</h3> {{demande.sujet}} <br>
+<h3>Nom de l'équipement a créer : </h3>{{demande.object.name}}<br>
+<h3>Type de l'objet : </h3>{{ nameObjtype }} <br> <br>
+<h3>A présent, veuillez saisir les attributs de votre équipement :</h3> 
+Si vous n'êtes pas en présence de l'information, saisissez : none <br><br>
+    <form  action="{{ path('gseb_demande_attributs', {'id_demande': demande.id}) }}" method="post" >
+    {% for carac in resultat %}
+        <div class="form-group">
+          <label for="Attribut"> {{ carac.name }} </label>
+          {% if carac.type == "uint" %}
+            <input type="number" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner un entier">
+          {% elseif carac.type == 'date' %}
+            <input type="date" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner la date, au format YYYY-MM-DD">
+          {% elseif carac.type == 'float' %}
+            <input type="number" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner un nombre décimal (au format 0.00)">
+          {% else %}
+            <input type="text" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner une chaîne de caractère">
+          {% endif %}
+        </div>
+    {% endfor %}
+    <input type="submit" value= "Valider" class="form-control" >
+    </form>
+{% endblock %}

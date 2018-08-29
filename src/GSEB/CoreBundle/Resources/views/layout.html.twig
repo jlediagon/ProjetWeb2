@@ -1,0 +1,56 @@
+{# GSEB/CoreBundle/Resources/views/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}FormdGseb{% endblock %}</title>
+
+    {% block stylesheets %}
+      {# On charge le CSS de bootstrap depuis le site directement #}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    {% endblock %}
+
+  </head>
+
+  <body>
+    <div class="container">
+    <!-- Static navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {% block navbar %}
+            {# {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                Connecté en tant que {{ app.user.username }}
+                -
+                <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+            {% endif %} #}
+        {% endblock %}
+      </nav>
+    </div>
+
+    <div class="container">
+        {% block body %}
+        {% endblock %} 
+    </div> <!-- /container -->
+
+    <!-- Footer -->
+    
+    <footer class="page-footer font-small blue">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">Ce site web est développé dans le cadre du projet RackTables © {{ 'now'|date('Y') }} Copyright</div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+      
+
+    {% block javascripts %}
+      {# <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> #}
+    {% endblock %}
+
+  </body>
+</html>

@@ -1,0 +1,84 @@
+{# src/GSEB/MainBundle/Resources/views/Action/modif.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Selection du type d'objet 
+{% endblock %}
+
+{% block sebplatform_body %}
+
+Votre demande de création a bien été prise en compte voici un récapitulatif :<br>
+<h2>Sujet de la demande :</h2> {{demande.sujet}} <br>
+<h2>Nom de l'équipement a créer : </h2>{{demande.object.name}}<br>
+<h2>Type de l'objet : </h2>{{ demande.object.objtypeId}} (a suivre pour le nom !)<br>
+<h2>Id de la baie</h2>{{ id_rack }} <br>
+{% set unit_front = "false" %}      
+{% set unit_interior = "false" %}      
+{% set unit_rear = "false" %}  
+
+<form  action="{{ path('gseb_demande_rackspace', {'id_demande': demande.id}) }}" method="post" >
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">U</th>
+      <th scope="col">Front</th>
+      <th scope="col">Interior</th>
+      <th scope="col">Back</th>      
+    </tr>
+  </thead>
+  {% for i in height..1 %}
+    <tr>
+        <th scope="col" >{{ i }}</th>
+
+      {% for unit in rackspace %}
+        {% if unit.unit_no == i and unit.atom=="front" %}
+          <td class="table-warning" scope="col">Occupé</td>
+          {% set unit_front = "true" %}      
+        {% endif %}
+      {% endfor %}
+
+      {% if unit_front != "true" %}
+          <td scope="col"><input class="form-check-input" type="checkbox" name="front[]" value={{ i }} ></td>        {% endif %}
+
+      {% for unit in rackspace %}
+        {% if unit.unit_no == i and unit.atom=="interior" %}
+          <td class="table-warning" scope="col">Occupé</td>
+          {% set unit_interior = "true" %}      
+        {% endif %}
+      {% endfor %}
+      {% if unit_interior != "true" %}
+          <td scope="col"><input class="form-check-input" type="checkbox" name="interior[]" value={{ i }} ></td>        {% endif %}
+
+      {% for unit in rackspace %}
+        {% if unit.unit_no == i and unit.atom=="rear" %}
+          <td class="table-warning" scope="col">Occupé</td>
+          {% set unit_rear = "true" %}      
+        {% endif %}
+      {% endfor %}
+      {% if unit_rear != "true" %}
+          <td scope="col"><input class="form-check-input" type="checkbox" name="rear[]" value={{ i }}></td>        {% endif %}
+      {% set unit_front = "false" %}      
+      {% set unit_interior = "false" %}      
+      {% set unit_rear = "false" %}   
+    </tr>
+  {% endfor %}
+</table>
+    {# <form  action="{{ path('gseb_platform_demande_attributs', {'id_demande': demande.id}) }}" method="post" >
+    {% for carac in resultat %}
+        <div class="form-group">
+          <label for="Attribut"> {{ carac.name }} </label>
+          {% if carac.type == "uint" %}
+            <input type="number" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner un entier">
+          {% elseif carac.type == 'date' %}
+            <input type="date" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner la date, au format YYYY-MM-DD">
+          {% elseif carac.type == 'float' %}
+            <input type="number" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner un nombre décimal (au format 0.00)">
+          {% else %}
+            <input type="text" name="{{ carac.id }}" class="form-control"  placeholder="Renseigner une chaîne de caractère">
+          {% endif %}
+        </div>
+    {% endfor %}#}
+    <input type="submit" value= "Valider" class="form-control" >
+    </form> 
+{% endblock %}

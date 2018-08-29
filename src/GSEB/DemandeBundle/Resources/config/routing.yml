@@ -1,0 +1,60 @@
+gseb_demande_salle:
+    path:     /
+    defaults: { _controller: GSEBDemandeBundle:Demande:listSalle }
+
+gseb_demande_baie:
+    path:     /salle/{id_salle}
+    defaults: { _controller: GSEBDemandeBundle:Demande:listBaie }
+    requirements:
+        id_salle: \d+
+
+gseb_demande_objtype:
+    path:     /baie/{id_baie}
+    defaults: { _controller: GSEBDemandeBundle:Demande:listObject }
+    requirements:
+        id_baie: \d+
+
+gseb_demande_properties:
+    path:     /object/{id_objtype}
+    defaults: { _controller: GSEBDemandeBundle:Demande:listProperties }
+    requirements:
+        id_objtype: \d+
+
+gseb_demande_attributs:
+    path:     /attributs/{id_demande}
+    defaults: { _controller: GSEBDemandeBundle:Demande:listAttributs }
+    requirements:
+        id_demande: \d+
+
+gseb_demande_rackspace:
+    path:     /rackspace/{id_demande}
+    defaults: { _controller: GSEBDemandeBundle:Demande:rackspace }
+    requirements:
+        id_demande: \d+
+
+gseb_demande_success:
+    path:     /success/{id_demande}
+    defaults: { _controller: GSEBDemandeBundle:Demande:demandeSuccess }
+    requirements:
+        id_demande: \d+
+
+gseb_demande_editdellist:
+    path:     /list
+    defaults: { _controller: GSEBDemandeBundle:Demande:listDemandes }
+
+gseb_demande_viewdemande:
+    path:     /list/{id}
+    defaults: { _controller: GSEBDemandeBundle:Demande:viewDemande }
+
+# gseb_platform_demande_recap:
+#     path:     /demande/recap
+#     defaults: { _controller: GSEBPlatformBundle:Demande:demandeRecap }
+
+# gseb_platform_demande_success:
+#     path:     /demande/success/{id_demande}
+#     defaults: { _controller: GSEBPlatformBundle:Demande:demandeSuccess }
+
+# gseb_platform_suppression:
+#     path:     /demande/suppression
+#     defaults: { _controller: GSEBPlatformBundle:Demande:suppression }
+

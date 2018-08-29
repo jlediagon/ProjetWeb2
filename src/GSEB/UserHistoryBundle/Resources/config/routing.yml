@@ -1,0 +1,7 @@
+gseb_user_history_list:
+    path:     /list
+    defaults: { _controller: GSEBUserHistoryBundle:UserHistory:listDemande }
+
+gseb_user_history_view:
+    path:     /view/{id_demande}
+    defaults: { _controller: GSEBUserHistoryBundle:UserHistory:viewDemande }

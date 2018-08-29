@@ -1,0 +1,7 @@
+gseb_admin_history_list:
+    path:     /list
+    defaults: { _controller: GSEBAdminHistoryBundle:History:listDemande }
+
+gseb_admin_history_view:
+    path:     /view/{id_demande}
+    defaults: { _controller: GSEBAdminHistoryBundle:History:viewDemande }

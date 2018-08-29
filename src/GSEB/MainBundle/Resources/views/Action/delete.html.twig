@@ -1,0 +1,18 @@
+{# src/GSEB/PlatformBundle/Resources/views/Action/add.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Ajouter un equipement 
+{% endblock %}
+
+{% block sebplatform_body %}
+
+  <h2>Supprimer une demande</h2>
+  <hr>
+  <p class="lead">
+    Veuillez cliquez sur le bouton suivant afin d'afficher vos demandes :
+  </p>
+  <a href="{{ path('gseb_demande_editdellist') }}" class="btn btn-primary " role="button" >Poursuivre</a>
+
+{% endblock %}

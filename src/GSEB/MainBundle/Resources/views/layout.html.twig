@@ -1,0 +1,40 @@
+{# src/OC/PlatformBundle/Resources/views/layout.html.twig #}
+
+{% extends "@GSEBCore/layout.html.twig" %}
+
+{% block title %}
+  Accueil User - {{ parent() }}
+{% endblock %}
+{% block navbar %}
+<a class="navbar-brand" href="{{ path('gseb_main_homepage') }}">Accueil</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path('gseb_user_history_list') }}">Historique </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      
+    </ul>
+  </div>
+
+{% endblock %} 
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+{% block bodyTitle %}
+<div>
+  <h1>Gestion des demandes</h1>
+{% endblock %}
+
+{% block body %}
+  <h1>Gestion des demandes</h1>
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block sebplatform_body %}
+
+  {% endblock %}
+{% endblock %}
+ 

@@ -1,0 +1,4 @@
+services:
+#    gseb_user.example:
+#        class: GSEB\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

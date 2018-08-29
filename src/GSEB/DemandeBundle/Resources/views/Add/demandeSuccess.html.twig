@@ -1,0 +1,22 @@
+{# src/GSEB/PlatformBundle/Resources/views/Action/modif.html.twig #}
+
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block title %}
+  Affichage du formulaire
+{% endblock %}
+
+{% block sebplatform_body %}
+
+  <h2>Voici les données du form </h2>
+   <p>
+      Votre demande, portant le numéro {{ demande }} a bien été prise en compte et sera traité dans les plus bref délais. 
+      <br>
+      Nous vous enverrons un mail dans lorsque la demande sera effective, je vous remercie de votre implication.
+      <br>
+    </p>
+    <a href="{{ path('gseb_main_homepage') }}" class="btn btn-primary " role="button" >
+        Retour à l'accueil         
+      </a>
+  
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "@GSEBMain/layout.html.twig" %}
+
+{% block body %}
+
+    <h2>Liste des Demandes</h2>
+
+    <ul class="list-group">
+        {% for demande in listDemandes %}
+            {% if demande.etat == 1 %}
+                <li class="list-group" >
+                    <a href="{{ path('gseb_demande_viewdemande', {'id': demande.id}) }}">
+                    {{ demande.sujet }}
+                    </a>
+                    par {{ demande.contact.nom }} {{ demande.contact.prenom }},
+                    le {{ demande.date|date('d/m/Y') }}
+                        <button type="button" class="btn btn-success" type="button" >Demande validée</button>
+                </li>
+            {% endif %}
+
+            {% if demande.etat == 2 %}
+                <li class="list-group" >
+                    <a href="{{ path('gseb_demande_viewdemande', {'id': demande.id}) }}">
+                    {{ demande.sujet }}
+                    </a>
+                    par {{ demande.contact.nom }} {{ demande.contact.prenom }},
+                    le {{ demande.date|date('d/m/Y') }}
+                        <button type="button" class="btn btn-warning" type="button" >En cours de validation</button>
+
+                </li>
+            {% endif %}
+            {% if demande.etat == 3 %}
+                <li class="list-group" >
+                    <a href="{{ path('gseb_demande_viewdemande', {'id': demande.id}) }}">
+                    {{ demande.sujet }}
+                    </a>
+                    par {{ demande.contact.nom }} {{ demande.contact.prenom }},
+                    le {{ demande.date|date('d/m/Y') }}
+                    <button type="button" class="btn btn-danger" type="button" >Demande non validée</button>
+                </li>
+            {% endif %}
+
+            {% else %}
+            <li class="list-group">Pas (encore !) d'annonces</li>
+        {% endfor %}
+  </ul>
+{% endblock %}
